@@ -12,10 +12,10 @@
       <div class="footer-links">
         <h4>Menu</h4>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/pricing">Pricing</router-link></li>
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/contact">Contact</router-link></li>
         </ul>
       </div>
       <div class="footer-links">

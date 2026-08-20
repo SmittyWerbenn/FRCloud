@@ -12,7 +12,7 @@
         dengan performa tinggi, uptime 99.9%, dan support 24/7.
       </p>
       <div class="hero-actions">
-        <a href="/pricing" class="btn-primary">Lihat Paket →</a>
+        <router-link to="/pricing" class="btn-primary">Lihat Paket →</router-link>
         <a href="https://wa.me/6285782846851" target="_blank" class="btn-secondary">Chat via WhatsApp</a>
       </div>
       <div class="hero-trust">

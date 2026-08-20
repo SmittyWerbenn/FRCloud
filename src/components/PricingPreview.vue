@@ -59,7 +59,7 @@ const plans = [
         </div>
       </div>
       <div class="pricing-cta">
-        <a href="/pricing">Lihat semua paket →</a>
+        <router-link to="/pricing">Lihat semua paket →</router-link>
       </div>
     </div>
   </section>
