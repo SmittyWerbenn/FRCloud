@@ -3,7 +3,6 @@ import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import FooterSection from './components/FooterSection.vue'
 import WaFloatButton from './components/WaFloatButton.vue'
-import ThemeToggle from './components/ThemeToggle.vue'
 </script>
 
 <template>
@@ -14,7 +13,6 @@ import ThemeToggle from './components/ThemeToggle.vue'
     </main>
     <FooterSection />
     <WaFloatButton />
-    <ThemeToggle />
   </div>
 </template>
 

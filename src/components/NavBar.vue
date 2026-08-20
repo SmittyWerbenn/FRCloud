@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import ThemeToggle from './ThemeToggle.vue'
 
 const mobileMenuOpen = ref(false)
 
@@ -26,6 +27,7 @@ function toggleMenu() {
         <li><RouterLink to="/pricing" @click="mobileMenuOpen = false">Pricing</RouterLink></li>
         <li><RouterLink to="/about" @click="mobileMenuOpen = false">About</RouterLink></li>
         <li><RouterLink to="/contact" @click="mobileMenuOpen = false">Contact</RouterLink></li>
+        <li><ThemeToggle /></li>
         <li><a href="https://wa.me/6285782846851" target="_blank" class="btn-nav">Order Sekarang</a></li>
       </ul>
     </div>

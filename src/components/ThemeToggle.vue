@@ -16,9 +16,12 @@ const theme = useThemeStore()
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
-  padding: 8px 14px;
-  font-size: 1.1rem;
+  padding: 6px 12px;
+  font-size: 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.3s, border-color 0.3s;
 }
 
