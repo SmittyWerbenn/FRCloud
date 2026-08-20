@@ -38,9 +38,9 @@ import ThemeToggle from './components/ThemeToggle.vue'
   --text-primary: #e0e0e0;
   --text-secondary: #9090a0;
   --text-muted: #808090;
-  --accent: #6366f1;
-  --accent-light: #a78bfa;
-  --accent-glow: rgba(99, 102, 241, 0.4);
+  --accent: #0284c7;
+  --accent-light: #38bdf8;
+  --accent-glow: rgba(2, 132, 199, 0.4);
   --nav-bg: rgba(10, 10, 15, 0.9);
   color-scheme: dark;
 }
@@ -55,9 +55,9 @@ import ThemeToggle from './components/ThemeToggle.vue'
   --text-primary: #1a1a2e;
   --text-secondary: #4a4a6a;
   --text-muted: #707090;
-  --accent: #6366f1;
-  --accent-light: #8b5cf6;
-  --accent-glow: rgba(99, 102, 241, 0.3);
+  --accent: #0284c7;
+  --accent-light: #38bdf8;
+  --accent-glow: rgba(2, 132, 199, 0.3);
   --nav-bg: rgba(245, 245, 250, 0.9);
   color-scheme: light;
 }
