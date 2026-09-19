@@ -1,30 +1,31 @@
 <script setup lang="ts">
-const plans = [
-  {
-    category: 'VPS Murah',
-    items: [
-      { name: 'VPS Starter', price: '50K', specs: ['1 vCPU', '1 GB RAM', '20 GB NVMe', '1 TB BW'] },
-      { name: 'VPS Basic', price: '85K', specs: ['1 vCPU', '2 GB RAM', '40 GB NVMe', '2 TB BW'] },
-      { name: 'VPS Pro', price: '150K', specs: ['2 vCPU', '4 GB RAM', '80 GB NVMe', '4 TB BW'] },
-    ],
-  },
-  {
-    category: 'Cloud Server',
-    items: [
-      { name: 'Cloud S', price: '200K', specs: ['2 vCPU', '4 GB RAM', '100 GB NVMe', 'Unlimited BW'] },
-      { name: 'Cloud M', price: '350K', specs: ['4 vCPU', '8 GB RAM', '200 GB NVMe', 'Unlimited BW'] },
-      { name: 'Cloud L', price: '600K', specs: ['8 vCPU', '16 GB RAM', '400 GB NVMe', 'Unlimited BW'] },
-    ],
-  },
-  {
-    category: 'Dedicated Server',
-    items: [
-      { name: 'Dedicated Basic', price: '1.2jt', specs: ['Intel Xeon E-2236', '32 GB RAM', '512 GB NVMe', 'Unmetered 100Mbps'] },
-      { name: 'Dedicated Pro', price: '2.5jt', specs: ['AMD EPYC 7302', '64 GB RAM', '1 TB NVMe', 'Unmetered 1Gbps'] },
-      { name: 'Dedicated Ultra', price: '5jt', specs: ['Dual Xeon 4314', '128 GB RAM', '2 TB NVMe', 'Unmetered 1Gbps'] },
-    ],
-  },
-]
+import { ref, computed, onMounted } from 'vue'
+import { fetchPlans, type Plan } from '@/lib/api'
+import { formatPriceShort, planSpecs } from '@/lib/format'
+
+const plans = ref<Plan[]>([])
+const loading = ref(true)
+const loadError = ref(false)
+
+const groups = computed(() => {
+  const byCategory = new Map<string, Plan[]>()
+  for (const plan of plans.value) {
+    const list = byCategory.get(plan.category) ?? []
+    list.push(plan)
+    byCategory.set(plan.category, list)
+  }
+  return Array.from(byCategory.entries()).map(([category, items]) => ({ category, items }))
+})
+
+onMounted(async () => {
+  try {
+    plans.value = await fetchPlans()
+  } catch {
+    loadError.value = true
+  } finally {
+    loading.value = false
+  }
+})
 
 const waLink = (plan: string) =>
   `https://wa.me/6285782846851?text=Halo%2C%20saya%20mau%20order%20${encodeURIComponent(plan)}`
@@ -38,17 +39,20 @@ const waLink = (plan: string) =>
         <p>Tersedia berbagai pilihan server sesuai kebutuhan dan budget Anda</p>
       </div>
 
-      <div v-for="group in plans" :key="group.category" class="plan-group">
+      <p v-if="loading" class="state-message">Memuat paket...</p>
+      <p v-else-if="loadError" class="state-message">Gagal memuat paket. Silakan coba lagi nanti.</p>
+
+      <div v-for="group in groups" :key="group.category" class="plan-group">
         <h2 class="group-title">{{ group.category }}</h2>
         <div class="plan-grid">
-          <div v-for="plan in group.items" :key="plan.name" class="plan-card">
+          <div v-for="plan in group.items" :key="plan.slug" class="plan-card">
             <h3>{{ plan.name }}</h3>
             <div class="price">
-              <span class="amount">Rp {{ plan.price }}</span>
+              <span class="amount">Rp {{ formatPriceShort(plan.price.monthly) }}</span>
               <span class="period">/bulan</span>
             </div>
             <ul>
-              <li v-for="spec in plan.specs" :key="spec">✓ {{ spec }}</li>
+              <li v-for="spec in planSpecs(plan)" :key="spec">✓ {{ spec }}</li>
             </ul>
             <a :href="waLink(plan.name)" target="_blank" class="btn-order">Order via WhatsApp</a>
           </div>
@@ -89,6 +93,12 @@ const waLink = (plan: string) =>
 .page-header p {
   color: var(--text-muted);
   font-size: 1.1rem;
+}
+
+.state-message {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 32px;
 }
 
 .highlight {

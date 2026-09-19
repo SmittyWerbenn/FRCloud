@@ -1,27 +1,26 @@
 <script setup lang="ts">
-const plans = [
-  {
-    name: 'Starter',
-    price: '50K',
-    period: '/bulan',
-    specs: ['1 vCPU', '1 GB RAM', '20 GB NVMe SSD', '1 TB Bandwidth', '1 IP Address'],
-    popular: false,
-  },
-  {
-    name: 'Business',
-    price: '120K',
-    period: '/bulan',
-    specs: ['2 vCPU', '4 GB RAM', '60 GB NVMe SSD', '4 TB Bandwidth', '1 IP Address', 'Daily Backup'],
-    popular: true,
-  },
-  {
-    name: 'Enterprise',
-    price: '350K',
-    period: '/bulan',
-    specs: ['4 vCPU', '8 GB RAM', '160 GB NVMe SSD', 'Unlimited Bandwidth', '2 IP Address', 'Daily Backup', 'Priority Support'],
-    popular: false,
-  },
-]
+import { ref, computed, onMounted } from 'vue'
+import { fetchPlans, type Plan } from '@/lib/api'
+import { formatPriceShort, planSpecs } from '@/lib/format'
+
+// A representative 3-plan spread for the homepage teaser (full catalog lives on /pricing).
+// The middle one is shown as "popular" the same way the old hardcoded list did.
+const TEASER_SLUGS = ['vps-starter', 'vps-pro', 'cloud-s']
+
+const allPlans = ref<Plan[]>([])
+const loading = ref(true)
+
+const teaser = computed(() =>
+  TEASER_SLUGS.map((slug) => allPlans.value.find((p) => p.slug === slug)).filter((p): p is Plan => Boolean(p)),
+)
+
+onMounted(async () => {
+  try {
+    allPlans.value = await fetchPlans()
+  } finally {
+    loading.value = false
+  }
+})
 </script>
 
 <template>
@@ -31,28 +30,29 @@ const plans = [
         <h2>Paket <span class="highlight">Harga</span></h2>
         <p>Pilih paket yang sesuai dengan kebutuhan Anda</p>
       </div>
+      <p v-if="loading" class="state-message">Memuat paket...</p>
       <div class="pricing-grid">
         <div
-          v-for="plan in plans"
-          :key="plan.name"
+          v-for="(plan, index) in teaser"
+          :key="plan.slug"
           class="pricing-card"
-          :class="{ popular: plan.popular }"
+          :class="{ popular: index === 1 }"
         >
-          <div v-if="plan.popular" class="popular-badge">🔥 Populer</div>
+          <div v-if="index === 1" class="popular-badge">🔥 Populer</div>
           <h3>{{ plan.name }}</h3>
           <div class="price">
             <span class="currency">Rp</span>
-            <span class="amount">{{ plan.price }}</span>
-            <span class="period">{{ plan.period }}</span>
+            <span class="amount">{{ formatPriceShort(plan.price.monthly) }}</span>
+            <span class="period">/bulan</span>
           </div>
           <ul>
-            <li v-for="spec in plan.specs" :key="spec">✓ {{ spec }}</li>
+            <li v-for="spec in planSpecs(plan)" :key="spec">✓ {{ spec }}</li>
           </ul>
           <a
             :href="`https://wa.me/6285782846851?text=Halo%2C%20saya%20mau%20order%20paket%20${plan.name}`"
             target="_blank"
             class="btn-order"
-            :class="{ 'btn-popular': plan.popular }"
+            :class="{ 'btn-popular': index === 1 }"
           >
             Order Sekarang
           </a>
@@ -90,6 +90,12 @@ const plans = [
 .section-header p {
   color: var(--text-muted);
   font-size: 1.1rem;
+}
+
+.state-message {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 32px;
 }
 
 .highlight {
