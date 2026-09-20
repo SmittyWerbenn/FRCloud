@@ -25,6 +25,7 @@ function toggleMenu() {
       <ul class="nav-links" :class="{ active: mobileMenuOpen }">
         <li><RouterLink to="/" @click="mobileMenuOpen = false">Home</RouterLink></li>
         <li><RouterLink to="/pricing" @click="mobileMenuOpen = false">Pricing</RouterLink></li>
+        <li><RouterLink to="/domain" @click="mobileMenuOpen = false">Domain</RouterLink></li>
         <li><RouterLink to="/about" @click="mobileMenuOpen = false">About</RouterLink></li>
         <li><RouterLink to="/contact" @click="mobileMenuOpen = false">Contact</RouterLink></li>
         <li><a href="https://wa.me/6285782846851" target="_blank" class="btn-nav">Order Sekarang</a></li>
