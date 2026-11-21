@@ -97,6 +97,13 @@ function toggleMenu() {
   color: var(--accent);
 }
 
+.nav-links a.router-link-active:not(.logo):not(.btn-nav):not(.btn-login),
+.nav-links a.router-link-exact-active:not(.logo):not(.btn-nav):not(.btn-login) {
+  color: var(--text-primary);
+  box-shadow: 0 2px 0 var(--accent);
+  padding-bottom: 6px;
+}
+
 .btn-nav {
   background: var(--accent);
   color: var(--on-accent) !important;
