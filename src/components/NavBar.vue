@@ -28,6 +28,7 @@ function toggleMenu() {
         <li><RouterLink to="/domain" @click="mobileMenuOpen = false">Domain</RouterLink></li>
         <li><RouterLink to="/about" @click="mobileMenuOpen = false">About</RouterLink></li>
         <li><RouterLink to="/contact" @click="mobileMenuOpen = false">Contact</RouterLink></li>
+        <li><a href="https://dashboard.frel.cloud/login" class="btn-login">Login</a></li>
         <li><a href="https://wa.me/6285782846851" target="_blank" class="btn-nav">Order Sekarang</a></li>
         <li><ThemeToggle /></li>
       </ul>
@@ -108,6 +109,20 @@ function toggleMenu() {
 .btn-nav:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.btn-login {
+  padding: 9px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent) !important;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-login:hover {
+  background: var(--accent);
+  color: #fff !important;
 }
 
 .mobile-toggle {
