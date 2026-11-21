@@ -5,7 +5,7 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="eyebrow">VPS · Dedicated · Cloud Hosting</p>
-      <h1>Server yang menyala,<br />bukan janji di brosur.</h1>
+      <h1>Flexible &amp; Reliable</h1>
       <p class="hero-desc">
         FRCloud menyewakan VPS dan dedicated server di data center Indonesia.
         Root penuh, tanpa kontrak, mulai dari Rp 50.000 per bulan.
