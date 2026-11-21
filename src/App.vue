@@ -27,45 +27,45 @@ import WaFloatButton from './components/WaFloatButton.vue'
 
 :root,
 [data-theme="dark"] {
-  --bg-primary: #111110;
-  --bg-secondary: #0c0c0b;
-  --bg-card: #181817;
-  --bg-card-hover: #1e1e1c;
-  --border-color: #2a2a28;
-  --border-color-hover: #44443f;
-  --text-primary: #ecebe6;
-  --text-secondary: #b3b1a8;
-  --text-muted: #8d8b83;
-  --accent: #ff6a2b;
-  --accent-light: #ff8a57;
+  --bg-primary: #0b1418;
+  --bg-secondary: #081014;
+  --bg-card: #101c22;
+  --bg-card-hover: #15262e;
+  --border-color: #1f323b;
+  --border-color-hover: #37505c;
+  --text-primary: #e6eef0;
+  --text-secondary: #a9bcc2;
+  --text-muted: #84999f;
+  --accent: #2bb596;
+  --accent-light: #4fcfb1;
   --accent-glow: transparent;
-  --on-accent: #1a0c04;
-  --ok: #7fb069;
-  --warn: #e0a83a;
-  --danger: #ef6b5b;
-  --nav-bg: #111110;
+  --on-accent: #04201a;
+  --ok: #5cc07a;
+  --warn: #e0b24a;
+  --danger: #ef7a6b;
+  --nav-bg: #0b1418;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --bg-primary: #f4f2ec;
-  --bg-secondary: #eae7df;
-  --bg-card: #fbfaf6;
-  --bg-card-hover: #f0ede5;
-  --border-color: #d8d4c8;
-  --border-color-hover: #aaa596;
-  --text-primary: #1b1a17;
-  --text-secondary: #4a4841;
-  --text-muted: #6e6b61;
-  --accent: #d9480f;
-  --accent-light: #b83a09;
+  --bg-primary: #eef3f3;
+  --bg-secondary: #e1eaeb;
+  --bg-card: #f9fbfb;
+  --bg-card-hover: #e8f0f0;
+  --border-color: #cddadc;
+  --border-color-hover: #8fa6ab;
+  --text-primary: #0f1a1e;
+  --text-secondary: #3d4f55;
+  --text-muted: #5c7077;
+  --accent: #0e7c6b;
+  --accent-light: #1e5a8e;
   --accent-glow: transparent;
-  --on-accent: #fffaf5;
-  --ok: #3f7d2a;
-  --warn: #a8700a;
+  --on-accent: #f4fffc;
+  --ok: #2a7a40;
+  --warn: #946500;
   --danger: #b42318;
-  --nav-bg: #f4f2ec;
+  --nav-bg: #eef3f3;
   color-scheme: light;
 }
 
