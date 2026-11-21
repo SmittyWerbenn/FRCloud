@@ -23,25 +23,21 @@ function sendWhatsApp() {
       <div class="contact-grid">
         <div class="contact-info">
           <div class="info-card">
-            <div class="info-icon">💬</div>
             <h3>WhatsApp</h3>
             <p>Respon cepat dalam hitungan menit</p>
             <a href="https://wa.me/6285782846851" target="_blank" class="info-link">Chat Sekarang →</a>
           </div>
           <div class="info-card">
-            <div class="info-icon">📧</div>
             <h3>Email</h3>
             <p>hello@frcloud.id</p>
             <a href="mailto:hello@frcloud.id" class="info-link">Kirim Email →</a>
           </div>
           <div class="info-card">
-            <div class="info-icon">🎮</div>
             <h3>Discord</h3>
             <p>Bergabung dengan komunitas kami</p>
             <a href="#" class="info-link">Join Discord →</a>
           </div>
           <div class="info-card">
-            <div class="info-icon">⏰</div>
             <h3>Jam Operasional</h3>
             <p>Support 24/7 setiap hari</p>
           </div>
@@ -87,7 +83,7 @@ function sendWhatsApp() {
 
 .page-header h1 {
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 12px;
 }
@@ -98,10 +94,7 @@ function sendWhatsApp() {
 }
 
 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .contact-grid {
@@ -119,7 +112,7 @@ function sendWhatsApp() {
 .info-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 24px;
 }
 
@@ -154,7 +147,7 @@ function sendWhatsApp() {
 .contact-form {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 3px;
   padding: 40px;
 }
 
@@ -181,7 +174,7 @@ function sendWhatsApp() {
   width: 100%;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 14px 16px;
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
@@ -201,11 +194,11 @@ function sendWhatsApp() {
 
 .btn-submit {
   width: 100%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 14px 24px;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -213,8 +206,6 @@ function sendWhatsApp() {
 }
 
 .btn-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-glow);
 }
 
 @media (max-width: 768px) {

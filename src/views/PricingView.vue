@@ -52,7 +52,7 @@ const waLink = (plan: string) =>
               <span class="period">/bulan</span>
             </div>
             <ul>
-              <li v-for="spec in planSpecs(plan)" :key="spec">✓ {{ spec }}</li>
+              <li v-for="spec in planSpecs(plan)" :key="spec">{{ spec }}</li>
             </ul>
             <a :href="waLink(plan.name)" target="_blank" class="btn-order">Order via WhatsApp</a>
           </div>
@@ -85,7 +85,7 @@ const waLink = (plan: string) =>
 
 .page-header h1 {
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 12px;
 }
@@ -102,10 +102,7 @@ const waLink = (plan: string) =>
 }
 
 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .plan-group {
@@ -114,8 +111,8 @@ const waLink = (plan: string) =>
 
 .group-title {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #a5b4fc;
+  font-weight: 600;
+  color: var(--accent-light);
   margin-bottom: 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border-color);
@@ -130,13 +127,12 @@ const waLink = (plan: string) =>
 .plan-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 32px;
   transition: transform 0.3s, border-color 0.3s, background 0.3s;
 }
 
 .plan-card:hover {
-  transform: translateY(-4px);
   border-color: var(--border-color-hover);
 }
 
@@ -152,7 +148,7 @@ const waLink = (plan: string) =>
 
 .amount {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -175,24 +171,22 @@ const waLink = (plan: string) =>
 .btn-order {
   display: block;
   text-align: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 12px 24px;
-  border-radius: 10px;
+  border-radius: 6px;
   font-weight: 600;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-order:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px var(--accent-glow);
 }
 
 .custom-box {
   text-align: center;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 3px;
   padding: 48px 32px;
 }
 
@@ -209,17 +203,15 @@ const waLink = (plan: string) =>
 
 .btn-custom {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 14px 36px;
-  border-radius: 10px;
+  border-radius: 6px;
   font-weight: 600;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-custom:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-glow);
 }
 
 @media (max-width: 768px) {

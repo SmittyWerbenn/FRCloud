@@ -3,145 +3,116 @@
 
 <template>
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-badge">☁️ Flexible & Reliable Cloud</div>
-      <h1>Server Cepat & Handal<br /><span class="highlight">Mulai dari Rp 50rb/bulan</span></h1>
+    <div class="hero-inner">
+      <p class="eyebrow">VPS · Dedicated · Cloud Hosting</p>
+      <h1>Server yang menyala,<br />bukan janji di brosur.</h1>
       <p class="hero-desc">
-        FRCloud menyediakan layanan VPS, Dedicated Server, dan Cloud Hosting
-        dengan performa tinggi, uptime 99.9%, dan support 24/7.
+        FRCloud menyewakan VPS dan dedicated server di data center Indonesia.
+        Root penuh, tanpa kontrak, mulai dari Rp 50.000 per bulan.
       </p>
       <div class="hero-actions">
-        <router-link to="/pricing" class="btn-primary">Lihat Paket →</router-link>
-        <a href="https://wa.me/6285782846851" target="_blank" class="btn-secondary">Chat via WhatsApp</a>
+        <router-link to="/pricing" class="btn-primary">Lihat paket</router-link>
+        <a href="https://wa.me/6285782846851" target="_blank" rel="noopener" class="btn-link">Tanya via WhatsApp</a>
       </div>
-      <div class="hero-trust">
-        <span>✓ Tanpa Kontrak</span>
-        <span>✓ Garansi Uptime</span>
-        <span>✓ Full Root Access</span>
-      </div>
+      <dl class="hero-facts">
+        <div><dt>Uptime</dt><dd>99,9%</dd></div>
+        <div><dt>Latency</dt><dd>&lt; 5 ms</dd></div>
+        <div><dt>Akses</dt><dd>root / SSH</dd></div>
+        <div><dt>Kontrak</dt><dd>tidak ada</dd></div>
+      </dl>
     </div>
   </section>
 </template>
 
 <style scoped>
 .hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 24px 80px;
-  overflow: hidden;
+  padding: 160px 24px 96px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-[data-theme="light"] .hero-bg {
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-}
-
-.hero-content {
-  position: relative;
-  max-width: 800px;
-  text-align: center;
-}
-
-.hero-badge {
-  display: inline-block;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  color: #a5b4fc;
-  margin-bottom: 28px;
-}
-
-[data-theme="light"] .hero-badge {
-  background: rgba(99, 102, 241, 0.08);
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--text-primary);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  max-width: 14em;
   margin-bottom: 24px;
 }
 
-.highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .hero-desc {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto 40px;
+  max-width: 34em;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  align-items: center;
+  gap: 28px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 72px;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
-  padding: 14px 36px;
-  border-radius: 10px;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 12px 22px;
+  border-radius: 4px;
   font-weight: 600;
-  font-size: 1.05rem;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-glow);
+  background: var(--accent-light);
 }
 
-.btn-secondary {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+.btn-link {
   color: var(--text-primary);
-  padding: 14px 36px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  transition: background 0.3s, border-color 0.3s;
+  border-bottom: 1px solid var(--border-color-hover);
+  padding-bottom: 2px;
 }
 
-.btn-secondary:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-color-hover);
+.btn-link:hover {
+  border-color: var(--accent);
 }
 
-.hero-trust {
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-  flex-wrap: wrap;
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-color);
+}
+
+.hero-facts div {
+  padding: 16px 16px 0 0;
+}
+
+.hero-facts dt {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-  h1 { font-size: 2.2rem; }
-  .hero { padding: 100px 16px 60px; }
+.hero-facts dd {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: 120px; }
+  .hero-facts { grid-template-columns: repeat(2, 1fr); row-gap: 8px; }
 }
 </style>

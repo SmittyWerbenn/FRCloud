@@ -4,7 +4,7 @@ const waLink = 'https://wa.me/6285782846851'
 
 <template>
   <a :href="waLink" target="_blank" class="wa-float" aria-label="Chat WhatsApp">
-    <span class="wa-icon">💬</span>
+    
     <span class="wa-text">Chat Kami</span>
   </a>
 </template>
@@ -17,20 +17,17 @@ const waLink = 'https://wa.me/6285782846851'
   display: flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #25d366, #128c7e);
+  background: #1f8f4e;
   color: #fff;
   padding: 14px 22px;
-  border-radius: 50px;
-  font-weight: 700;
+  border-radius: 3px;
+  font-weight: 600;
   font-size: 0.95rem;
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
   z-index: 9999;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .wa-float:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 36px rgba(37, 211, 102, 0.5);
 }
 
 .wa-icon {

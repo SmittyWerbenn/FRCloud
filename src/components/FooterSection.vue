@@ -73,7 +73,7 @@
 .footer-name {
   display: block;
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 8px;
 }

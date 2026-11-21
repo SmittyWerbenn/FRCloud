@@ -38,7 +38,7 @@ onMounted(async () => {
           class="pricing-card"
           :class="{ popular: index === 1 }"
         >
-          <div v-if="index === 1" class="popular-badge">🔥 Populer</div>
+          <div v-if="index === 1" class="popular-badge">Paling dipilih</div>
           <h3>{{ plan.name }}</h3>
           <div class="price">
             <span class="currency">Rp</span>
@@ -46,7 +46,7 @@ onMounted(async () => {
             <span class="period">/bulan</span>
           </div>
           <ul>
-            <li v-for="spec in planSpecs(plan)" :key="spec">✓ {{ spec }}</li>
+            <li v-for="spec in planSpecs(plan)" :key="spec">{{ spec }}</li>
           </ul>
           <a
             :href="`https://wa.me/6285782846851?text=Halo%2C%20saya%20mau%20order%20paket%20${plan.name}`"
@@ -82,7 +82,7 @@ onMounted(async () => {
 
 .section-header h2 {
   font-size: 2.4rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 12px;
 }
@@ -99,10 +99,7 @@ onMounted(async () => {
 }
 
 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .pricing-grid {
@@ -115,7 +112,7 @@ onMounted(async () => {
 .pricing-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 3px;
   padding: 40px 32px;
   text-align: center;
   position: relative;
@@ -123,7 +120,6 @@ onMounted(async () => {
 }
 
 .pricing-card:hover {
-  transform: translateY(-4px);
 }
 
 .pricing-card.popular {
@@ -137,10 +133,10 @@ onMounted(async () => {
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 6px 20px;
-  border-radius: 20px;
+  border-radius: 3px;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -163,7 +159,7 @@ onMounted(async () => {
 
 .amount {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -188,10 +184,10 @@ onMounted(async () => {
 .btn-order {
   display: block;
   background: var(--bg-card);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid var(--border-color-hover);
   color: var(--text-primary);
   padding: 14px 24px;
-  border-radius: 10px;
+  border-radius: 6px;
   font-weight: 600;
   transition: all 0.3s;
 }
@@ -202,14 +198,12 @@ onMounted(async () => {
 }
 
 .btn-popular {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  background: var(--accent);
   border: none;
-  color: #fff;
+  color: var(--on-accent);
 }
 
 .btn-popular:hover {
-  box-shadow: 0 4px 20px var(--accent-glow);
-  transform: translateY(-2px);
 }
 
 .pricing-cta {

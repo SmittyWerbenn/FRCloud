@@ -73,7 +73,7 @@ const waLink = (domain: string) =>
       <div v-if="result" class="result-card" :class="{ available: result.available, taken: !result.available }">
         <div class="result-main">
           <span class="result-domain">{{ result.domain }}</span>
-          <span class="result-status">{{ result.available ? '✓ Tersedia' : '✗ Sudah terdaftar' }}</span>
+          <span class="result-status">{{ result.available ? 'Tersedia' : 'Sudah terdaftar' }}</span>
         </div>
         <template v-if="result.available">
           <span class="result-price">Rp {{ formatPriceShort(result.price.registrationPrice) }}/tahun</span>
@@ -116,7 +116,7 @@ const waLink = (domain: string) =>
 
 .page-header h1 {
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 12px;
 }
@@ -127,10 +127,7 @@ const waLink = (domain: string) =>
 }
 
 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .search-box {
@@ -145,7 +142,7 @@ const waLink = (domain: string) =>
   padding: 14px 18px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 6px;
   color: var(--text-primary);
   font-size: 1rem;
 }
@@ -156,11 +153,11 @@ const waLink = (domain: string) =>
 }
 
 .search-box button {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   border: none;
   padding: 14px 24px;
-  border-radius: 10px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -178,7 +175,7 @@ const waLink = (domain: string) =>
 }
 
 .search-message.error {
-  color: #ef4444;
+  color: var(--danger);
 }
 
 .result-card {
@@ -186,17 +183,17 @@ const waLink = (domain: string) =>
   margin: 24px auto 0;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 28px;
   text-align: center;
 }
 
 .result-card.available {
-  border-color: rgba(34, 197, 94, 0.4);
+  border-color: color-mix(in srgb, var(--ok) 40%, transparent);
 }
 
 .result-card.taken {
-  border-color: rgba(239, 68, 68, 0.3);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
 }
 
 .result-main {
@@ -208,7 +205,7 @@ const waLink = (domain: string) =>
 
 .result-domain {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .result-status {
@@ -216,11 +213,11 @@ const waLink = (domain: string) =>
 }
 
 .result-card.available .result-status {
-  color: #22c55e;
+  color: var(--ok);
 }
 
 .result-card.taken .result-status {
-  color: #ef4444;
+  color: var(--danger);
 }
 
 .result-price {
@@ -231,10 +228,10 @@ const waLink = (domain: string) =>
 
 .btn-order {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 12px 28px;
-  border-radius: 10px;
+  border-radius: 6px;
   font-weight: 600;
 }
 
@@ -245,7 +242,7 @@ const waLink = (domain: string) =>
 .pricing-section h2 {
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 24px;
 }
 
@@ -258,7 +255,7 @@ const waLink = (domain: string) =>
 .tld-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 24px 16px;
   text-align: center;
   display: flex;
@@ -268,12 +265,12 @@ const waLink = (domain: string) =>
 
 .tld-name {
   font-size: 1.3rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
 .tld-price {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--accent);
 }
 

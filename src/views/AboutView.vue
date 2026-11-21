@@ -31,15 +31,15 @@ const timeline = [
         </div>
         <div class="about-values">
           <div class="value-card">
-            <h3>🎯 Fokus pada Kualitas</h3>
+            <h3>Fokus pada Kualitas</h3>
             <p>Kami hanya menggunakan hardware terbaru dan jaringan berkecepatan tinggi.</p>
           </div>
           <div class="value-card">
-            <h3>🤝 Customer First</h3>
+            <h3>Customer First</h3>
             <p>Kepuasan pelanggan adalah prioritas utama kami.</p>
           </div>
           <div class="value-card">
-            <h3>💡 Inovasi</h3>
+            <h3>Inovasi</h3>
             <p>Terus berinovasi mengikuti perkembangan teknologi cloud terbaru.</p>
           </div>
         </div>
@@ -78,7 +78,7 @@ const timeline = [
 
 .page-header h1 {
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 12px;
 }
@@ -89,10 +89,7 @@ const timeline = [
 }
 
 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .about-grid {
@@ -123,7 +120,7 @@ const timeline = [
 .value-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 24px;
 }
 
@@ -161,11 +158,11 @@ const timeline = [
 
 .timeline-year {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 6px 16px;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: 4px;
+  font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 12px;
 }

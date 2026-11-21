@@ -6,18 +6,20 @@ const theme = useThemeStore()
 
 <template>
   <button class="theme-toggle" @click="theme.toggle" :title="theme.isDark ? 'Switch to Light' : 'Switch to Dark'">
-    <span v-if="theme.isDark">🌙</span>
-    <span v-else>☀️</span>
+    <span v-if="theme.isDark">Gelap</span>
+    <span v-else>Terang</span>
   </button>
 </template>
 
 <style scoped>
 .theme-toggle {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   padding: 6px 12px;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-family: var(--mono);
+  color: var(--text-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -26,7 +28,7 @@ const theme = useThemeStore()
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--bg-card-hover);
 }
 
 /* Light theme override */

@@ -43,7 +43,7 @@ function toggleMenu() {
   width: 100%;
   z-index: 1000;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
+  
   border-bottom: 1px solid var(--border-color);
   transition: background 0.3s, border-color 0.3s;
 }
@@ -71,10 +71,10 @@ function toggleMenu() {
 
 .logo-tagline {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--accent);
   letter-spacing: 0.5px;
-  border-left: 1px solid rgba(99, 102, 241, 0.4);
+  border-left: 1px solid var(--border-color-hover);
   padding-left: 10px;
   text-transform: uppercase;
 }
@@ -98,23 +98,21 @@ function toggleMenu() {
 }
 
 .btn-nav {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #fff !important;
+  background: var(--accent);
+  color: var(--on-accent) !important;
   padding: 10px 24px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-weight: 600;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-nav:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px var(--accent-glow);
 }
 
 .btn-login {
   padding: 9px 22px;
   border: 1px solid var(--accent);
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--accent) !important;
   font-weight: 600;
   transition: background 0.2s, color 0.2s;
@@ -122,7 +120,7 @@ function toggleMenu() {
 
 .btn-login:hover {
   background: var(--accent);
-  color: #fff !important;
+  color: var(--on-accent) !important;
 }
 
 .mobile-toggle {
@@ -165,12 +163,10 @@ function toggleMenu() {
     flex-direction: column;
     padding: 32px 24px;
     gap: 24px;
-    transform: translateY(-120%);
     transition: transform 0.3s;
   }
 
   .nav-links.active {
-    transform: translateY(0);
   }
 }
 </style>

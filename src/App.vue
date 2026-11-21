@@ -17,7 +17,7 @@ import WaFloatButton from './components/WaFloatButton.vue'
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 * {
   margin: 0;
@@ -27,45 +27,79 @@ import WaFloatButton from './components/WaFloatButton.vue'
 
 :root,
 [data-theme="dark"] {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #07070c;
-  --bg-card: rgba(255, 255, 255, 0.02);
-  --bg-card-hover: rgba(99, 102, 241, 0.05);
-  --border-color: rgba(99, 102, 241, 0.1);
-  --border-color-hover: rgba(99, 102, 241, 0.3);
-  --text-primary: #e0e0e0;
-  --text-secondary: #9090a0;
-  --text-muted: #808090;
-  --accent: #0284c7;
-  --accent-light: #38bdf8;
-  --accent-glow: rgba(2, 132, 199, 0.4);
-  --nav-bg: rgba(10, 10, 15, 0.9);
+  --bg-primary: #111110;
+  --bg-secondary: #0c0c0b;
+  --bg-card: #181817;
+  --bg-card-hover: #1e1e1c;
+  --border-color: #2a2a28;
+  --border-color-hover: #44443f;
+  --text-primary: #ecebe6;
+  --text-secondary: #b3b1a8;
+  --text-muted: #8d8b83;
+  --accent: #ff6a2b;
+  --accent-light: #ff8a57;
+  --accent-glow: transparent;
+  --on-accent: #1a0c04;
+  --ok: #7fb069;
+  --warn: #e0a83a;
+  --danger: #ef6b5b;
+  --nav-bg: #111110;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --bg-primary: #f5f5fa;
-  --bg-secondary: #ececf5;
-  --bg-card: rgba(0, 0, 0, 0.03);
-  --bg-card-hover: rgba(99, 102, 241, 0.05);
-  --border-color: rgba(99, 102, 241, 0.15);
-  --border-color-hover: rgba(99, 102, 241, 0.35);
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a6a;
-  --text-muted: #707090;
-  --accent: #0284c7;
-  --accent-light: #38bdf8;
-  --accent-glow: rgba(2, 132, 199, 0.3);
-  --nav-bg: rgba(245, 245, 250, 0.9);
+  --bg-primary: #f4f2ec;
+  --bg-secondary: #eae7df;
+  --bg-card: #fbfaf6;
+  --bg-card-hover: #f0ede5;
+  --border-color: #d8d4c8;
+  --border-color-hover: #aaa596;
+  --text-primary: #1b1a17;
+  --text-secondary: #4a4841;
+  --text-muted: #6e6b61;
+  --accent: #d9480f;
+  --accent-light: #b83a09;
+  --accent-glow: transparent;
+  --on-accent: #fffaf5;
+  --ok: #3f7d2a;
+  --warn: #a8700a;
+  --danger: #b42318;
+  --nav-bg: #f4f2ec;
   color-scheme: light;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+code, kbd, .mono {
+  font-family: var(--mono);
+}
+
+table, .mono, dd {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 #app {
